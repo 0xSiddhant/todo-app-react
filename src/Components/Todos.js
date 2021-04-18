@@ -3,14 +3,15 @@ import Todo from './Todo'
 
 export default class Todos extends Component {
     render() {
+        let users = JSON.parse(localStorage.getItem("users") || "[]");
         return (
             <div className="mt-4">
-                {this.props.data ? this.props.data.length === 0 ?
+                {users ? users.length === 0 ?
                     <div>No Data found</div> :
-                    this.props.data.map((item) => {
+                    users.map((item, index) => {
                         return (
-                            <div key={item.id}>
-                                <Todo data={item} callBack={this.props.callBack} />
+                            <div key={index}>
+                                <Todo data={item} indx={index} callBack={this.props.callBack} />
                             </div>
                         )
                     }) : ""}
