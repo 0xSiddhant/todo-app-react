@@ -8,7 +8,6 @@ export default class MyForm extends Component {
         }
     }
     valueChanged = (e) => {
-        console.log(e.currentTarget.value)
         const { currentTarget: input } = e
         const data = { ...this.state.user }
         data[input.name] = input.value
@@ -16,7 +15,6 @@ export default class MyForm extends Component {
     }
     render() {
         const { user } = this.state
-        console.log(user)
         return (
             <div>
                 <form action="">

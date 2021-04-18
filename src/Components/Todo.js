@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Todo({ data }) {
+export default function Todo({ data, callBack }) {
     return (
         <div className="card">
             <div className="row p-4">
@@ -9,7 +9,7 @@ export default function Todo({ data }) {
                     <p>{data.body}</p>
                 </div>
                 <div className="m-auto">
-                    <button className="btn-danger btn btn-large"> Delete</button>
+                    <button className="btn-danger btn btn-large" onClick={() => { callBack(data) }}> Delete</button>
                 </div>
             </div>
         </div>

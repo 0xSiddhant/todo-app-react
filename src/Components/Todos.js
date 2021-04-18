@@ -10,7 +10,7 @@ export default class Todos extends Component {
                     this.props.data.map((item) => {
                         return (
                             <div key={item.id}>
-                                <Todo data={item} />
+                                <Todo data={item} callBack={this.props.callBack} />
                             </div>
                         )
                     }) : ""}
