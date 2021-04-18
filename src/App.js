@@ -15,7 +15,12 @@ function App() {
   }
 
   const saveData = (userData) => {
-    console.log(userData)
+    list.push({
+      userId: 1,
+      id: list.length,
+      title: userData.title,
+      body: userData.body
+    })
     setStt(false)
   }
   return (

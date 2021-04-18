@@ -28,7 +28,7 @@ export default class MyForm extends Component {
                         <label htmlFor="body">Description</label>
                         <input type="text" onChange={this.valueChanged} className="form-control" value={user.body} name="body" />
                     </div>
-                    <button className="btn btn-primary" onClick={this.props.callBack(user)}>Save Data</button>
+                    <button className="btn btn-primary" onClick={() => { this.props.callBack(user) }}>Save Data</button>
                 </form>
             </div>
         )
