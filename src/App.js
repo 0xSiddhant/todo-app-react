@@ -1,26 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './Components/Header';
+import Todos from './Components/Todos';
+import { data } from './Model/List'
+import MyForm from './Components/MyForm';
+import React, { useState } from 'react'
+
 
 function App() {
-  let name = "Siddhant";
+  const [show_form_status, setStt] = useState(false)
+  let list = data
+
+  const openForm = () => {
+    setStt(true)
+  }
+
+  const saveData = (userData) => {
+    console.log(userData)
+    setStt(false)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        {20 + 30}
-        <h1>{name}</h1>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <Header title="ToDo App" callBack={openForm} />
+      {
+        show_form_status ? <MyForm callBack={saveData} /> :
+          <Todos data={data} />
+      }
     </div>
   );
 }
